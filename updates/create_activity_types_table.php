@@ -12,6 +12,11 @@ class CreateActivityTypesTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
+
+            $table->string('name');
+            $table->string('model')->nullable();
+            $table->string('key')->default('id');
+
             $table->timestamps();
         });
     }

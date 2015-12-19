@@ -12,7 +12,15 @@ class CreateActivitiesTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->timestamps();
+
+            $table->string('session_id');
+            $table->integer('user_id')->unsigned()->nullable();
+
+            $table->integer('activity_type_id');
+
+            $table->string('model_id')->nullable();
+
+            $table->timestamp('created_at');
         });
     }
 
