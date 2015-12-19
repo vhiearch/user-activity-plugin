@@ -6,3 +6,11 @@ columns:
     id:
         label: ID
         searchable: true
+    name:
+        label: Name
+        searchable: true
+    model:
+        label: Model
+        searchable: true
+    key:
+        label: Key

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Activity Type
+
+# Model Form Field configuration
+form: $/vhiearch/useractivity/models/activitytype/fields.yaml
+
+# Model Class name
+modelClass: Vhiearch\Useractivity\Models\ActivityType
+
+# Default redirect location
+defaultRedirect: vhiearch/useractivity/activitytypes
+
+# Create page
+create:
+    title: Create Activity Type
+    redirect: vhiearch/useractivity/activitytypes/update/:id
+    redirectClose: vhiearch/useractivity/activitytypes
+
+# Update page
+update:
+    title: Edit Activity Type
+    redirect: vhiearch/useractivity/activitytypes
+    redirectClose: vhiearch/useractivity/activitytypes
+
+# Preview page
+preview:
+    title: Preview Activity Type

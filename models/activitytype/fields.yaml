@@ -3,6 +3,16 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    name:
+        label: Name
+        comment: Example: blog.post.view
+        span: auto
+    model:
+        label: Model
+        comment: Example: RainLab\Blog\Models\Post
+        span: auto
+    key:
+        label: Key
+        default: id
+        comment: Change if your the primary key is not "id"
+        span: auto
