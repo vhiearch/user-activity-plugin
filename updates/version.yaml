@@ -1,1 +1,4 @@
-1.0.1: First version of UserActivity
+1.0.1:
+    - First version of UserActivity
+    - create_activity_types_table.php
+    - create_activity_table.php
