@@ -1,9 +1,11 @@
 <?php namespace Vhiearch\UserActivity;
 
+use App;
+use Backend;
 use File;
 use Yaml;
-use Backend;
 use System\Classes\PluginBase;
+use Illuminate\Foundation\AliasLoader;
 
 /**
  * UserActivity Plugin Information File
@@ -24,6 +26,16 @@ class Plugin extends PluginBase
             'author'      => 'Vhiearch',
             'icon'        => 'icon-leaf'
         ];
+    }
+
+    public function register()
+    {
+        $alias = AliasLoader::getInstance();
+        $alias->alias('Activity', 'Vhiearch\UserActivity\Facades\Activity');
+
+        App::singleton('useractivity.activity', function() {
+            return new \Vhiearch\UserActivity\Classes\Activity;
+        });
     }
 
     /**
