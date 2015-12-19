@@ -5,15 +5,17 @@
 columns:
     session_id:
         label: Session ID
-    user:
+    user_id:
         label: User ID
     activity_type:
         label: Activity Type
+        relation: activity_type
+        select: name
         searchable: true
     model:
         label: Model
         relation: activity_type
-        selectFrom: model
+        select: model
         searchable: true
     model_id:
         label: Model ID
