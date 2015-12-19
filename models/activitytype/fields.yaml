@@ -9,7 +9,7 @@ fields:
         span: auto
     model:
         label: Model
-        type: dropdown
+        type: text
         comment: Example: RainLab\Blog\Models\Post
         span: auto
     key:

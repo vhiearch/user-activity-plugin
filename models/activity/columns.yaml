@@ -5,8 +5,14 @@
 columns:
     session_id:
         label: Session ID
+        invisible: true
     user_id:
         label: User ID
+    user:
+        label: User Name
+        relation: user
+        select: name
+        searchable: true
     activity_type:
         label: Activity Type
         relation: activity_type
