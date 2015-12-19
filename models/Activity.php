@@ -15,6 +15,8 @@ class Activity extends Model
      */
     public $table = 'vhiearch_useractivity_activities';
 
+    public $timestamps = false;
+
     /**
      * @var array Guarded fields
      */
@@ -43,8 +45,10 @@ class Activity extends Model
 
 // -------------------------------------------------------------------------- //
 
-    public function setUpdatedAt($value)
+    public function setUpdatedAtAttribute($value)
     {
+        return false;
+//        return 'abc';
         // Do nothing.
     }
 
@@ -54,28 +58,35 @@ class Activity extends Model
         $user = \Auth::getUser();
 
         // Is login?
-        if(\Auth::check() || Session::has('user_is_login'))
+        if(\Auth::check())
         {
             $user_id = \Auth::getUser()->id;
 
-            $guest_logs = self::whereSessionId($session_id);
+            $guest_logs = self::whereSessionId($session_id)->whereNull('user_id');
             $guest_logs->update(['user_id' => $user_id]);
-            $guest_logs->save();
+            // $guest_logs->save();
 
-            Session::put('user_is_login', $session_id);
+            // Session::put('user_is_login', $session_id);
         }
         else
         {
             $user_id = null;
         }
 
-        $activity_type = ActivityType::whereName($activityType)->firstOrFail();
+        try {
+            $activity_type = ActivityType::whereName($activityType)->firstOrFail();
+        }
+        catch(\Exception $e) {
+            throw new ApplicationException('Activity type is not Found');
+        }
+
 
         self::create([
             'session_id' => $session_id,
             'user_id' => $user_id,
             'activity_type_id' => $activity_type->id,
             'model_id' => $modelId,
+            'created_at' => \Carbon\Carbon::now(),
         ]);
 
     }
