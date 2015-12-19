@@ -1,0 +1,15 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+activities:
+    label: Member
+    list: $/vhiearch/useractivity/models/activity/columns.yaml
+    form: $/vhiearch/useractivity/models/activity/columns.yaml
+    readOnly: true
+    view:
+        showSearch: true
+        defaultSort:
+            column: created_at
+            direction: desc
+        recordsPerPage: 20

@@ -1,0 +1,8 @@
+# ===================================
+#  Extended Activities Field Definitions
+# ===================================
+
+activities:
+    type: partial
+    path: $/vhiearch/useractivity/models/activity/_relation_activities.htm
+    tab: Activities

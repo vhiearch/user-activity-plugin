@@ -1,5 +1,7 @@
 <?php namespace Vhiearch\UserActivity;
 
+use File;
+use Yaml;
 use Backend;
 use System\Classes\PluginBase;
 
@@ -87,6 +89,30 @@ class Plugin extends PluginBase
                 'permissions' => ['vhiearch.useractivity.*']
             ]
         ];
+    }
+
+    public function boot()
+    {
+        \RainLab\User\Models\User::extend(function($model) {
+
+            $model->hasMany['activities'] = 'Vhiearch\UserActivity\Models\Activity';
+
+        });
+
+        \RainLab\User\Controllers\Users::extend(function($controller) {
+            $controller->implement[] = 'Backend.Behaviors.RelationController';
+            $controller->relationConfig =  __DIR__ . '/config/user_relation.yaml';
+        });
+
+        \RainLab\User\Controllers\Users::extendFormFields(function($form, $model, $context) {
+            if (!$model instanceof \RainLab\User\Models\User)
+                return;
+
+            $configFile = __DIR__ . '/config/activities_fields.yaml';
+            $config = Yaml::parse(File::get($configFile));
+            $form->addTabFields($config);
+        });
+
     }
 
 }
