@@ -99,19 +99,19 @@ class Plugin extends PluginBase
 
         });
 
-        \RainLab\User\Controllers\Users::extend(function($controller) {
-            $controller->implement[] = 'Backend.Behaviors.RelationController';
-            $controller->relationConfig =  __DIR__ . '/config/user_relation.yaml';
-        });
+//        \RainLab\User\Controllers\Users::extend(function($controller) {
+//            $controller->implement[] = 'Backend.Behaviors.RelationController';
+//            $controller->relationConfig =  __DIR__ . '/config/user_relation.yaml';
+//        });
 
-        \RainLab\User\Controllers\Users::extendFormFields(function($form, $model, $context) {
-            if (!$model instanceof \RainLab\User\Models\User)
-                return;
-
-            $configFile = __DIR__ . '/config/activities_fields.yaml';
-            $config = Yaml::parse(File::get($configFile));
-            $form->addTabFields($config);
-        });
+//        \RainLab\User\Controllers\Users::extendFormFields(function($form, $model, $context) {
+//            if (!$model instanceof \RainLab\User\Models\User)
+//                return;
+//
+//            $configFile = __DIR__ . '/config/activities_fields.yaml';
+//            $config = Yaml::parse(File::get($configFile));
+//            $form->addTabFields($config);
+//        });
 
     }
 
