@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use System\Classes\SettingsManager;
 
 /**
  * Activities Back-end Controller
@@ -20,6 +21,7 @@ class Activities extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Vhiearch.UserActivity', 'useractivity', 'activities');
+        BackendMenu::setContext('October.System', 'system', 'settings');
+        SettingsManager::setContext('Vhiearch.UserActivity', 'useractivity');
     }
 }

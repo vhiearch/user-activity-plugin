@@ -62,14 +62,30 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
+//        return [
+//            'useractivity' => [
+//                'label'       => 'UserActivity',
+//                'url'         => Backend::url('vhiearch/useractivity/mycontroller'),
+//                'icon'        => 'icon-leaf',
+//                'permissions' => ['vhiearch.useractivity.*'],
+//                'order'       => 500,
+//            ],
+//        ];
+    }
+
+    public function registerSettings()
+    {
         return [
             'useractivity' => [
-                'label'       => 'UserActivity',
-                'url'         => Backend::url('vhiearch/useractivity/mycontroller'),
-                'icon'        => 'icon-leaf',
-                'permissions' => ['vhiearch.useractivity.*'],
+                'label'       => 'User Activities',
+                'description' => 'See the activitiy log of users.',
+                'category'    => 'Users',
+                'icon'        => 'icon-cog',
+                // 'model'       => 'Vhiearch\UserActivity\Models\Settings',
+                'url'         => Backend::url('vhiearch/useractivity/activities'),
                 'order'       => 500,
-            ],
+                'permissions' => ['vhiearch.useractivity.*']
+            ]
         ];
     }
 

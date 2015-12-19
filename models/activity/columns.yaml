@@ -3,6 +3,21 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+    session_id:
+        label: Session ID
+    user:
+        label: User ID
+    activity_type:
+        label: Activity Type
+        searchable: true
+    model:
+        label: Model
+        relation: activity_type
+        selectFrom: model
+        searchable: true
+    model_id:
+        label: Model ID
+    created_at:
+        label: Timestamp
+        type: datetime
         searchable: true
